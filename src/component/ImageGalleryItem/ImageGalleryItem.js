@@ -14,8 +14,8 @@ class ImageGalleryItem extends Component {
         `https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${this.props.imgName}&page=${this.state.page}&per_page=12&key=23937697-9e9e797303b592bb126e18e87`
       )
         .then((response) => response.json())
-        .then((img) => this.setState({ img }))
-        // this.setState({ imgArr: [{ ...img.hits }] })
+        .then((img) => this.setState({ imgArr: [{ ...img.hits }] }))
+
         .finally(() => this.setState({ loading: false }));
     }
   }
@@ -25,7 +25,7 @@ class ImageGalleryItem extends Component {
       <>
         {this.loading && <p>Загрузка...</p>}
         {imgArr.length > 0 &&
-          this.img.hits.map((el) => (
+          imgArr.map((el) => (
             <li className="gallery-item" key={el.id}>
               <img src={el.webformatURL} alt={el.user} />
             </li>
