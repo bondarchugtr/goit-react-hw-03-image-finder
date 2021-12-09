@@ -9,11 +9,12 @@ class Search extends Component {
   };
 
   handleSubmit = (el) => {
+    const { imgName } = this.state;
     el.preventDefault();
-    if (this.state.imgName.trim() === "") {
+    if (imgName.trim() === "") {
       return;
     }
-    this.props.img(this.state.imgName);
+    this.props.img(imgName);
     this.setState({ imgName: "" });
   };
   render() {
