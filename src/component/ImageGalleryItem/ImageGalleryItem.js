@@ -3,6 +3,7 @@ import { nanoid } from "nanoid";
 import Button from "../Button/Button";
 import ThreeDots from "../Loader/Loader";
 import Modal from "../Modal/Modal";
+import s from "./ImageGalleryItem.module.css";
 class ImageGalleryItem extends Component {
   state = {
     imgArr: [],
@@ -30,8 +31,6 @@ class ImageGalleryItem extends Component {
   }
 
   buttonOnclickNextPage = () => {
-    ThreeDots();
-    console.log("click");
     this.setState({
       page: this.state.page + 1,
     });
@@ -52,10 +51,10 @@ class ImageGalleryItem extends Component {
     const { imgArr, isOpen } = this.state;
     return (
       <>
-        <div>
+        <div className={s.img__block}>
           {imgArr.length > 0 &&
             imgArr.map((el) => (
-              <li className="gallery-item" key={el.id}>
+              <li className={s.gallery__item} key={el.id}>
                 <img
                   onClick={this.onClickImgToggleModal}
                   src={el.webformatURL}
@@ -65,11 +64,9 @@ class ImageGalleryItem extends Component {
                 />
               </li>
             ))}
-          {imgArr.length > 0 && (
-            <Button nextPage={this.buttonOnclickNextPage} />
-          )}
-          {this.state.loading && <ThreeDots />}
         </div>
+        {imgArr.length > 0 && <Button nextPage={this.buttonOnclickNextPage} />}
+        {this.state.loading && <ThreeDots />}
         {isOpen && <Modal onClose={this.onClickImgToggleModal} />}
       </>
     );
