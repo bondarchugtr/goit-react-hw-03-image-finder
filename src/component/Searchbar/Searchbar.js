@@ -31,7 +31,6 @@ class Search extends Component {
               </span>
               <span className="button-label">Search</span>
             </button>
-
             <input
               onChange={this.searchPhoto}
               className="input"

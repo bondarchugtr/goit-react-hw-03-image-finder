@@ -21,15 +21,13 @@ class Modal extends Component {
       this.props.onClose();
     }
   };
+
   render() {
+    const { openImgModal, alt } = this.props;
     return createPortal(
       <div className={s.overlay} onClick={this.closeBackDrop}>
         <div className={s.modal}>
-          <img
-            className={s.modal__image}
-            src={this.props.largeImageURL}
-            alt={this.props.alt}
-          />
+          <img className={s.modal__image} src={openImgModal} alt={alt} />
         </div>
       </div>,
       modalContainer

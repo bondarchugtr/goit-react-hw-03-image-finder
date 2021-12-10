@@ -9,7 +9,7 @@ class ImageGalleryItem extends Component {
     imgArr: [],
     loading: false,
     page: 1,
-    largeImageURL: "",
+    largeImageURL: null,
     isOpen: false,
   };
   componentDidUpdate(prevProps, prevState) {
@@ -36,27 +36,31 @@ class ImageGalleryItem extends Component {
     });
   };
 
-  test = () => {
-    this.setState({ largeImageURL: this.state.imgArr.largeImageURL });
-    console.log(this.largeImageURL);
-  };
   onClickImgToggleModal = () => {
     this.setState(({ isOpen }) => ({
       isOpen: !isOpen,
-      largeImageURL: this.state.imgArr[1],
     }));
   };
 
+  test = (el) => {
+    this.onClickImgToggleModal();
+    this.setState({ largeImageURL: el.target.dataset.src });
+  };
+
   render() {
-    const { imgArr, isOpen } = this.state;
+    const { imgArr, isOpen, largeImageURL } = this.state;
+    console.log(largeImageURL);
     return (
       <>
         <div className={s.img__block}>
           {imgArr.length > 0 &&
             imgArr.map((el) => (
-              <li className={s.gallery__item} key={el.id}>
+              <li key={el.id} className={s.gallery__item}>
                 <img
-                  onClick={this.onClickImgToggleModal}
+                  className={s.gallery__img}
+                  onClick={this.test}
+                  data-src={el.largeImageURL}
+                  id={el.id}
                   src={el.webformatURL}
                   alt={el.user}
                   width="360px"
@@ -67,7 +71,12 @@ class ImageGalleryItem extends Component {
         </div>
         {imgArr.length > 0 && <Button nextPage={this.buttonOnclickNextPage} />}
         {this.state.loading && <ThreeDots />}
-        {isOpen && <Modal onClose={this.onClickImgToggleModal} />}
+        {isOpen && (
+          <Modal
+            onClose={this.onClickImgToggleModal}
+            openImgModal={largeImageURL}
+          />
+        )}
       </>
     );
   }
