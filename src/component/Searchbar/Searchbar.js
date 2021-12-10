@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { nanoid } from "nanoid";
+import { ReactComponent as Logo } from "../../logo.svg";
 class Search extends Component {
   state = {
     imgName: "",
@@ -25,6 +26,9 @@ class Search extends Component {
         <header className="searchbar">
           <form className="form" onSubmit={this.handleSubmit}>
             <button type="submit" className="button">
+              <span>
+                <Logo />
+              </span>
               <span className="button-label">Search</span>
             </button>
 
