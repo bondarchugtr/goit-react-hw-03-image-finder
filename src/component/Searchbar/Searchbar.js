@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { nanoid } from "nanoid";
 import { ReactComponent as Logo } from "../../logo.svg";
+import s from "./Searchbar.module.css";
 class Search extends Component {
   state = {
     imgName: "",
@@ -23,17 +24,17 @@ class Search extends Component {
 
     return (
       <>
-        <header className="searchbar">
-          <form className="form" onSubmit={this.handleSubmit}>
-            <button type="submit" className="button">
+        <header className={s.form__block}>
+          <form className={s.form} onSubmit={this.handleSubmit}>
+            <button className={s.button__submit} type="submit">
               <span>
-                <Logo />
+                <Logo width="30px" height="30px" />
               </span>
-              <span className="button-label">Search</span>
+              <span className={s.button__label}>Search</span>
             </button>
             <input
               onChange={this.searchPhoto}
-              className="input"
+              className={s.input}
               type="text"
               placeholder="Search images and photos"
               value={imgName}

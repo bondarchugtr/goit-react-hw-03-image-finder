@@ -48,7 +48,7 @@ class ImageGalleryItem extends Component {
   };
 
   render() {
-    const { imgArr, isOpen, largeImageURL } = this.state;
+    const { imgArr, isOpen, largeImageURL, loading } = this.state;
     console.log(largeImageURL);
     return (
       <>
@@ -70,7 +70,7 @@ class ImageGalleryItem extends Component {
             ))}
         </div>
         {imgArr.length > 0 && <Button nextPage={this.buttonOnclickNextPage} />}
-        {this.state.loading && <ThreeDots />}
+        {loading && <ThreeDots />}
         {isOpen && (
           <Modal
             onClose={this.onClickImgToggleModal}

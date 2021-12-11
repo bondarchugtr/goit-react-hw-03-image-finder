@@ -1,19 +1,17 @@
 .img__block {
-  display: flex;
-  flex-wrap: wrap;
+  max-width: calc(100vw - 48px);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  grid-gap: 14px;
+  padding: 0;
+  margin-top: 25px;
 }
 
 .gallery__item {
-  overflow: hidden;
-  margin-bottom: 30px;
-  margin-left: 0;
-  margin-top: 0;
-  flex-basis: calc((100% - 90px) / 4);
 }
 .gallery__img {
-  -moz-transition: all 1s ease-out;
-  -o-transition: all 1s ease-out;
-  -webkit-transition: all 1s ease-out;
+  width: 100%;
+  transition: all 0.5s ease-out;
 }
 
 .gallery__img:last-child {
@@ -21,8 +19,6 @@
 }
 
 .gallery__img:hover {
-  -webkit-transform: scale(1.1);
-  -moz-transform: scale(1.1);
-  -o-transform: scale(1.1);
-  box-shadow: 0 5px 10px 5px chocolate;
+  transform: scale(1.1);
+  box-shadow: 0 5px 10px 5px rgb(197, 193, 191);
 }

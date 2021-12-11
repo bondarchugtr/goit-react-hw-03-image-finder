@@ -1,22 +1,32 @@
 .overlay {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
+  padding-left: 15px;
+  padding-right: 15px;
+  background: rgba(0, 0, 0, 0.2);
+  opacity: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: scroll;
   background-color: rgba(0, 0, 0, 0.8);
 }
 
 .modal {
   transform: scale(0.95);
   transition: transform var(--animation-duration) var(--timing-function);
-  background-color: burlywood;
 }
 
-.modal__image {
-  display: block;
-  width: auto;
-  height: auto;
-  max-height: 100vh;
-  max-width: 100vw;
-}
+/* .modal__image { */
+/* position: absolute; */
+/* left: 50%; */
+/* left: 0; */
+/* top: 0; */
+/* width: auto; */
+/* height: auto; */
+/* max-height: 100vh; */
+/* max-width: 100vw; */
+/* } */

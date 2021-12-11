@@ -1,0 +1,27 @@
+.form__block {
+  width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form {
+  position: relative;
+  margin-top: 15px;
+}
+
+.input {
+  padding: 15px;
+  width: 100%;
+  border-color: rgb(236, 228, 217);
+}
+
+.button__submit {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 40px;
+  right: 1%;
+  top: 12%;
+}
