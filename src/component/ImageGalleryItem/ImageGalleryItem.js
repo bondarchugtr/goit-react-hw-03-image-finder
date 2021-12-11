@@ -4,6 +4,7 @@ import Button from "../Button/Button";
 import ThreeDots from "../Loader/Loader";
 import Modal from "../Modal/Modal";
 import s from "./ImageGalleryItem.module.css";
+
 class ImageGalleryItem extends Component {
   state = {
     imgArr: [],
@@ -28,12 +29,24 @@ class ImageGalleryItem extends Component {
         )
         .finally(() => this.setState({ loading: false }));
     }
+    if (prevProps.imgName !== imgName) {
+      this.clearOnNewRequest();
+    }
   }
+
+  clearOnNewRequest = () => {
+    this.setState({
+      page: 1,
+      imgArr: [],
+    });
+  };
 
   buttonOnclickNextPage = () => {
     this.setState({
       page: this.state.page + 1,
     });
+
+    this.scrollTop();
   };
 
   onClickImgToggleModal = () => {
@@ -42,14 +55,24 @@ class ImageGalleryItem extends Component {
     }));
   };
 
-  test = (el) => {
+  imgModalWriting = (el) => {
     this.onClickImgToggleModal();
     this.setState({ largeImageURL: el.target.dataset.src });
+  };
+  scrollTop = () => {
+    setTimeout(
+      () =>
+        window.scrollTo({
+          top: window.pageYOffset + document.documentElement.clientHeight,
+          behavior: "smooth",
+          block: "end",
+        }),
+      1000
+    );
   };
 
   render() {
     const { imgArr, isOpen, largeImageURL, loading } = this.state;
-    console.log(largeImageURL);
     return (
       <>
         <div className={s.img__block}>
@@ -58,7 +81,7 @@ class ImageGalleryItem extends Component {
               <li key={el.id} className={s.gallery__item}>
                 <img
                   className={s.gallery__img}
-                  onClick={this.test}
+                  onClick={this.imgModalWriting}
                   data-src={el.largeImageURL}
                   id={el.id}
                   src={el.webformatURL}
@@ -69,7 +92,9 @@ class ImageGalleryItem extends Component {
               </li>
             ))}
         </div>
-        {imgArr.length > 0 && <Button nextPage={this.buttonOnclickNextPage} />}
+        {imgArr.length > 0 && !loading && (
+          <Button nextPage={this.buttonOnclickNextPage} />
+        )}
         {loading && <ThreeDots />}
         {isOpen && (
           <Modal

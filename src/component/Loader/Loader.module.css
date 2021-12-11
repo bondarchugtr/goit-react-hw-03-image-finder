@@ -1,4 +1,4 @@
-.overlay {
+.spinner__backdrop {
   position: fixed;
   top: 0;
   left: 0;
@@ -6,6 +6,7 @@
   height: 100vh;
   padding-left: 15px;
   padding-right: 15px;
+  background: rgba(0, 0, 0, 0.2);
   opacity: 1;
   display: flex;
   justify-content: center;
@@ -13,8 +14,8 @@
   overflow-y: scroll;
   background-color: rgba(0, 0, 0, 0.8);
 }
+.spinner {
+  position: absolute;
 
-.modal {
-  transform: scale(0.95);
-  transition: transform var(--animation-duration) var(--timing-function);
+  z-index: 1000;
 }

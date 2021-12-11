@@ -1,7 +1,7 @@
 .img__block {
   max-width: calc(100vw - 48px);
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
   grid-gap: 14px;
   padding: 0;
   margin-top: 25px;
@@ -12,6 +12,7 @@
 .gallery__img {
   width: 100%;
   transition: all 0.5s ease-out;
+  cursor: pointer;
 }
 
 .gallery__img:last-child {

@@ -1,17 +1,22 @@
 .form__block {
-  width: 700px;
-  margin-left: auto;
-  margin-right: auto;
+  position: sticky;
+  top: 0;
+  margin-top: 15px;
+  z-index: 1000;
+  margin-left: 25px;
+  margin-right: 25px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .form {
-  position: relative;
-  margin-top: 15px;
+  width: 100%;
 }
 
 .input {
   padding: 15px;
   width: 100%;
+  margin: 0;
   border-color: rgb(236, 228, 217);
 }
 
@@ -24,4 +29,16 @@
   height: 40px;
   right: 1%;
   top: 12%;
+  padding: 5px;
+  background-color: rgb(153, 227, 229);
+  border-radius: 5px;
+  border: 1px solid tan;
+  transition: all 0.5s ease-out;
+}
+
+.button__submit:hover,
+.button__submit:focus {
+  transform: scale(1.1);
+  transition: transform var(--animation-duration) var(--timing-function);
+  transition: all 0.5s ease-out;
 }
