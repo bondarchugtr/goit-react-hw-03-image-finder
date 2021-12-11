@@ -6,10 +6,12 @@ class Modal extends Component {
   componentDidMount() {
     document.body.appendChild(modalContainer);
     window.addEventListener("keydown", this.closeKeyDown);
+    document.body.style.overflow = "hidden";
   }
 
   componentWillUnmount() {
     window.removeEventListener("keydown", this.closeKeyDown);
+    document.body.style.overflow = "scroll";
   }
   closeKeyDown = (el) => {
     if (el.code === "Escape") {

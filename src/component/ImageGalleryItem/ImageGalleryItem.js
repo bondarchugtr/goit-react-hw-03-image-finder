@@ -1,10 +1,8 @@
 import React, { Component } from "react";
-import { nanoid } from "nanoid";
 import Button from "../Button/Button";
 import ThreeDots from "../Loader/Loader";
 import Modal from "../Modal/Modal";
 import s from "./ImageGalleryItem.module.css";
-
 class ImageGalleryItem extends Component {
   state = {
     imgArr: [],
@@ -42,9 +40,8 @@ class ImageGalleryItem extends Component {
   };
 
   buttonOnclickNextPage = () => {
-    this.setState({
-      page: this.state.page + 1,
-    });
+    const { page } = this.state;
+    this.setState({ page: page + 1 });
 
     this.scrollTop();
   };
@@ -86,7 +83,7 @@ class ImageGalleryItem extends Component {
                   id={el.id}
                   src={el.webformatURL}
                   alt={el.user}
-                  width="360px"
+                  width="380px"
                   height="280px"
                 />
               </li>

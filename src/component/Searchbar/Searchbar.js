@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { nanoid } from "nanoid";
 import { ReactComponent as Logo } from "../../logo.svg";
 import s from "./Searchbar.module.css";
 class Search extends Component {

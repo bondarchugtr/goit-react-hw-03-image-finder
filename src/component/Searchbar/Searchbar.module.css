@@ -18,6 +18,7 @@
   width: 100%;
   margin: 0;
   border-color: rgb(236, 228, 217);
+  background: rgb(236, 228, 217, 0.7);
 }
 
 .button__submit {
