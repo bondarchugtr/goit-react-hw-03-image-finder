@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import s from "./Modal.module.css";
 import { createPortal } from "react-dom";
+import ImageGallery from "../ImageGallery/ImageGallery";
 const modalContainer = document.createElement("div");
 class Modal extends Component {
   componentDidMount() {
