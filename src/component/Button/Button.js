@@ -2,7 +2,7 @@ import React from "react";
 import s from "./Button.module.css";
 const Button = ({ nextPage }) => {
   return (
-    <div className={s.b}>
+    <div className={s.block_button}>
       <button className={s.button} onClick={nextPage}>
         Load more
       </button>

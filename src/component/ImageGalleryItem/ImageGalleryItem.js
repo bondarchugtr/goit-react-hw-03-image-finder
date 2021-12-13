@@ -1,7 +1,6 @@
 import React from "react";
-
 import s from "./ImageGalleryItem.module.css";
-const ImageGalleryItem = ({ id, src, user, onClick, largeImageURL }) => {
+const ImageGalleryItem = ({ id, src, user, onClick }) => {
   return (
     <>
       <li className={s.gallery__item}>

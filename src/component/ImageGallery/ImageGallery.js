@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import ImageGalleryItem from "../ImageGalleryItem/ImageGalleryItem";
 import s from "./ImageGallery.module.css";
-import itemstyle from "../ImageGalleryItem/ImageGalleryItem.module.css";
-
 import container from "../Container.module.css";
 import Api from "../ApiService/ApiService";
 import Button from "../Button/Button";
@@ -78,20 +76,18 @@ class ImageGallery extends Component {
     return (
       <>
         <div className={container.container}>
-          <div className={itemstyle.img__block}>
-            {imgArr.length > 0 && (
-              <ul className={s.gallery}>
-                {imgArr.map((img) => (
-                  <ImageGalleryItem
-                    key={img.id}
-                    src={img.webformatURL}
-                    alt={img.tags}
-                    onClick={() => this.imgModalWriting(img.largeImageURL)}
-                  />
-                ))}
-              </ul>
-            )}
-          </div>
+          {imgArr.length > 0 && (
+            <ul className={s.gallery}>
+              {imgArr.map((img) => (
+                <ImageGalleryItem
+                  key={img.id}
+                  src={img.webformatURL}
+                  alt={img.tags}
+                  onClick={() => this.imgModalWriting(img.largeImageURL)}
+                />
+              ))}
+            </ul>
+          )}
         </div>
 
         {imgArr.length > 0 && !loading && (
